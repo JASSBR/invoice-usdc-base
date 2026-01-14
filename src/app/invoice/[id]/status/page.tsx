@@ -2,12 +2,13 @@
 import Link from "next/link";
 import { getInvoiceById } from "@/lib/invoices";
 
-export default function InvoiceStatusPage({
+export default async function InvoiceStatusPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const invoice = getInvoiceById(params.id);
+  const { id } = await params;
+  const invoice = getInvoiceById(id);
 
   if (!invoice) {
     return (

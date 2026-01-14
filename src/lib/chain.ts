@@ -8,6 +8,8 @@ export const BASE_SEPOLIA = {
   defaultRpcUrl: "https://sepolia.base.org",
 } as const;
 
+export const baseSepoliaChainId = BASE_SEPOLIA.chainId;
+
 export function getClientRpcUrl() {
   return (
     process.env.NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL || BASE_SEPOLIA.defaultRpcUrl
